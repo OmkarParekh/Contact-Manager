@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import swal from 'sweetalert'
+import Axios from 'axios'
 
 export default class add extends Component {
     constructor(){
@@ -25,15 +26,24 @@ export default class add extends Component {
         
     }
     submit(){
-        var i=window.open(`https://contactmac.herokuapp.com/add/${this.state.name}/${this.state.number}`)
-        setTimeout(function(){
+        // var i=window.open(`http://localhost:3000/add/${this.state.name}/${this.state.number}`)
+        // setTimeout(function(){
            
-            i.close();
+        //     i.close();
           
+        //     swal("Contact Has been Saved").then(()=>{
+                
+        //     })
+        // }, 1000);
+        Axios.post(`https://contactmac.herokuapp.com/add/${this.state.name}/${this.state.number}`)
+            .then(()=>{console.log("Added")
+            })
+            .catch(err=>{
+                console.log(err)
+            })
             swal("Contact Has been Saved").then(()=>{
                 
             })
-        }, 1000);
         this.setState({
             name:'',
             number:''

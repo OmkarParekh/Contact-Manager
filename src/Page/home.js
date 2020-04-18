@@ -25,14 +25,22 @@ export default class home extends Component {
     }
     delete(id){
         console.log(id.target.value)
-        var i=window.open(`https://contactmac.herokuapp.com/delete/${id.target.value}`)
-        setTimeout(function(){
-            i.close();
-            swal("Contact has been Deleted")
+        // var i=window.open(`https://contactmac.herokuapp.com/delete/${id.target.value}`)
+        // setTimeout(function(){
+        //     i.close();
+        //     swal("Contact has been Deleted")
+        //     .then(() => {
+        //     swal(`Refresh The Page`);
+        //     });
+        // }, 1000);
+        Axios.post(`https://contactmac.herokuapp.com/delete/${id.target.value}`)
+        .then(()=>{
+            console.log("Deleted")
+        })
+        swal("Contact has been Deleted")
             .then(() => {
             swal(`Refresh The Page`);
             });
-        }, 1000);
     }
     render() {
         const { data } = this.state

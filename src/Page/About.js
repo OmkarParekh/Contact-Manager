@@ -7,7 +7,7 @@ export default class About extends Component {
                 <br/>
                 <h1 class="text-primary">Contact Manager</h1>
                 <p>Simple Site to Manage Contact</p>
-                <h6 class="text-primary">v1.0</h6>
+                <h6 class="text-primary">v1.1</h6>
                 
             </div>
         )
