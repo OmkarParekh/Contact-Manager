@@ -4,6 +4,7 @@ import Nav from "./Page/navbar"
 import home from "./Page/home"
 import Add from "./Page/add"
 import About from "./Page/About"
+import visualize from "./Page/Visualize";
 
 
 export default () => (
@@ -12,6 +13,7 @@ export default () => (
        <Route path="/" exact component={home} />
        <Route path="/Add" exact component={Add} />
        <Route path="/About" exact component={About}/>
+       <Route path="/visualize" exact component={visualize}/>
       
 
  

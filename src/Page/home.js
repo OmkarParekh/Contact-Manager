@@ -11,8 +11,7 @@ export default class home extends Component {
         this.delete=this.delete.bind(this)
     }
     componentDidMount() {
-      
-        Axios.get('https://contactmac.herokuapp.com/display')
+        Axios.get('http://localhost:8000/display')
             .then(data => {
                 this.setState({
                     data: data.data
@@ -25,15 +24,7 @@ export default class home extends Component {
     }
     delete(id){
         console.log(id.target.value)
-        // var i=window.open(`https://contactmac.herokuapp.com/delete/${id.target.value}`)
-        // setTimeout(function(){
-        //     i.close();
-        //     swal("Contact has been Deleted")
-        //     .then(() => {
-        //     swal(`Refresh The Page`);
-        //     });
-        // }, 1000);
-        Axios.post(`https://contactmac.herokuapp.com/delete/${id.target.value}`)
+        Axios.post(`http://localhost:8000/delete/${id.target.value}`)
         .then(()=>{
             console.log("Deleted")
         })
@@ -49,7 +40,6 @@ export default class home extends Component {
                 <br/>
                 <h1 class="text-primary ">Contact List</h1> 
               <br/>
-
                 <div>
                     {
                         Object.values(data).reverse().map(({ Name, Number,date ,_id}) => 
@@ -65,12 +55,9 @@ export default class home extends Component {
                 </div>
                 </div>
                 <br/>
-                </div>
-                
-                        
+                </div> 
                         )
                     }
-
                 </div>
             </div>
         )
