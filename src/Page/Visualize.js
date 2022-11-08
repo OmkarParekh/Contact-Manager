@@ -33,9 +33,11 @@ export const options = {
 
 export default function Visualize() {
     const [contacts, setContact] = useState([])
-    useEffect(async () => {
-        const data = await axios.get('http://localhost:8000/display')
-        setContact(data.data)
+    useEffect(() => {
+        axios.get('http://localhost:8000/display')
+            .then(res => {
+                setContact(res.data)
+            })
     }, [])
     const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
