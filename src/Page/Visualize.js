@@ -34,7 +34,7 @@ export const options = {
 export default function Visualize() {
     const [contacts, setContact] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:8000/display')
+        axios.get('https://contactmac.herokuapp.com/display')
             .then(res => {
                 setContact(res.data)
             })

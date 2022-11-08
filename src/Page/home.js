@@ -8,10 +8,10 @@ export default class home extends Component {
         this.state = {
             data: []
         }
-        this.delete=this.delete.bind(this)
+        this.delete = this.delete.bind(this)
     }
     componentDidMount() {
-        Axios.get('http://localhost:8000/display')
+        Axios.get('https://contactmac.herokuapp.com/display')
             .then(data => {
                 this.setState({
                     data: data.data
@@ -22,40 +22,40 @@ export default class home extends Component {
             .catch(err =>
                 console.log(err))
     }
-    delete(id){
+    delete(id) {
         console.log(id.target.value)
-        Axios.post(`http://localhost:8000/delete/${id.target.value}`)
-        .then(()=>{
-            console.log("Deleted")
-        })
+        Axios.post(`https://contactmac.herokuapp.com/delete/${id.target.value}`)
+            .then(() => {
+                console.log("Deleted")
+            })
         swal("Contact has been Deleted")
             .then(() => {
-            swal(`Refresh The Page`);
+                swal(`Refresh The Page`);
             });
     }
     render() {
         const { data } = this.state
         return (
             <div class='container'>
-                <br/>
-                <h1 class="text-primary ">Contact List</h1> 
-              <br/>
+                <br />
+                <h1 class="text-primary ">Contact List</h1>
+                <br />
                 <div>
                     {
-                        Object.values(data).reverse().map(({ Name, Number,date ,_id}) => 
-                <div class='container'>
-                <div class="card">
-                <div class="card-header bg-primary text-white">
-                  {date}
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title"><span class="text-primary">Name</span> : <span class="text-primary">{Name}</span></h5>
-                  <p class="card-text">Number : {Number}</p>
-                  <button type="button" class="btn btn-primary" value={_id}   onClick={this.delete}>Delete</button>
-                </div>
-                </div>
-                <br/>
-                </div> 
+                        Object.values(data).reverse().map(({ Name, Number, date, _id }) =>
+                            <div class='container'>
+                                <div class="card">
+                                    <div class="card-header bg-primary text-white">
+                                        {date}
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><span class="text-primary">Name</span> : <span class="text-primary">{Name}</span></h5>
+                                        <p class="card-text">Number : {Number}</p>
+                                        <button type="button" class="btn btn-primary" value={_id} onClick={this.delete}>Delete</button>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
                         )
                     }
                 </div>
