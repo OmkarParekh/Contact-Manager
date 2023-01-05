@@ -16,7 +16,7 @@ export default class home extends Component {
                 this.setState({
                     data: data.data
                 })
-                console.log(this.state.data)
+                // console.log(this.state.data)
             }
             )
             .catch(err =>
