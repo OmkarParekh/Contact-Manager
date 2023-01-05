@@ -35,7 +35,7 @@ export default class add extends Component {
 
         //     })
         // }, 1000);
-        Axios.post(`https://contactmac.herokuapp.com/add/${this.state.name}/${this.state.number}`)
+        Axios.post(`${window.url}/add/${this.state.name}/${this.state.number}`)
             .then(() => {
                 console.log("Added")
             })

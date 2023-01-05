@@ -11,7 +11,7 @@ export default class home extends Component {
         this.delete = this.delete.bind(this)
     }
     componentDidMount() {
-        Axios.get('https://contactmac.herokuapp.com/display')
+        Axios.get(`${window.url}/display`)
             .then(data => {
                 this.setState({
                     data: data.data

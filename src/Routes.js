@@ -5,6 +5,7 @@ import home from "./Page/home"
 import Add from "./Page/add"
 import About from "./Page/About"
 import visualize from "./Page/Visualize";
+window.url = "https://contact-back.onrender.com"
 const Routes = () => (
     <Router>
         <Nav />

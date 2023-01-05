@@ -29,9 +29,9 @@ export default class navbar extends Component {
                                 <li class="nav-link">
                                     <Link class='text-white' to='/About'>About</Link>
                                 </li>
-                                <li class="nav-link">
+                                {/* <li class="nav-link">
                                     <Link class='text-white' to='/Visualize'>Visualize</Link>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                     </div>
